@@ -1,0 +1,182 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html, body{
+    overflow: hidden;
+    scroll-behavior: none;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background-color: #000;
+    color: #fff;
+    user-select: none;
+}
+
+
+#main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+
+#interface{
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    color: #bdbdbd;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#interface_header{
+    padding: 8px;
+    display: flex;
+    justify-content: space-around;
+    background-color: #28282899;
+    flex-wrap: wrap;
+    align-items: center;
+}
+#counter{
+    margin-bottom: 8px;
+}
+
+
+
+
+#directional{
+    display: none;
+    grid-template-columns: repeat(3, 48px);
+    grid-template-rows: repeat(3, 48px);
+    color: #454545;
+    position: absolute;
+    bottom: 16px;
+    left: 16px;
+    justify-items: stretch;
+    align-items: stretch;
+}
+#directional div{
+    font-size: 1.2em; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.6;
+}
+.directional_button{
+    background-color: #282828;
+    color: #666666;
+    border: 1px solid #fff;
+}
+
+.directional_button:nth-child(2){
+    border-bottom: none;
+    border-radius: 8px 8px 0 0;
+}
+.directional_button:nth-child(4){
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+}
+.directional_button:nth-child(6){
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+}
+.directional_button:nth-child(8){
+    border-top: none;
+    border-radius: 0 0 8px 8px;
+}
+
+
+.directional_button:active{
+    opacity: 1 !important;
+}
+.directional_hidden{
+    display: grid !important;
+}
+
+
+
+#controls{
+    display: flex;
+    height: fit-content;
+    text-align: center;
+}
+.control_button{
+    cursor: pointer;
+    margin: 0 16px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+}
+#audio_toggle_button svg:last-child,
+#audio_toggle_button.audio_muted svg:first-child{
+    display: none;
+}
+#audio_toggle_button.audio_muted svg:last-child{
+    display: initial !important;
+}
+.control_label{
+    font-size: 0.7em;
+    transition: 100ms;
+}
+
+
+
+
+
+
+#game{
+    /* background-color: #ded6ae; */
+    display: grid;
+    transition: 200ms;
+    opacity: 0;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+}
+.dummy,
+.slot{
+    width: 32px;
+    height: 32px;
+}
+
+.slot,
+.player{
+    image-rendering: pixelated;
+    background-image: url("assets/sprites.png");
+}
+
+.slot_brick{
+    background-position-x: calc(0);
+}
+.slot_void{
+    background-position-x: calc(-32px);
+}
+.slot_void_dot{
+    background-position-x: calc(-64px);
+}
+.slot_box{
+    background-position-x: calc(-96px);
+}
+.slot_box_active{
+    background-position-x: calc(-128px);
+}
+
+.player{
+    width: 33px;
+    height: 32px;
+    background-position-x: calc(33px);
+    transform: rotate(90deg);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
